@@ -18,72 +18,23 @@
         </div>
     </div>
     
-    <div class="ten wide column">
-    <div class="ui comments">
+<div class="ten wide column">
   <h3 class="ui dividing header">Chatroom</h3>
-  <div class="comment">
-    <div class="content">
-      <a class="author">Matt</a>
-      <div class="metadata">
-        <span class="date">Today at 5:42PM</span>
-      </div>
-      <div class="text">
-        How artistic!
-      </div>
-      <div class="actions">
-        <a class="reply">Reply</a>
-      </div>
-    </div>
-  </div>
-  <div class="comment">
-    <div class="content">
-      <a class="author">Elliot Fu</a>
-      <div class="metadata">
-        <span class="date">Yesterday at 12:30AM</span>
-      </div>
-      <div class="text">
-        <p>This has been very useful for my research. Thanks as well!</p>
-      </div>
-      <div class="actions">
-        <a class="reply">Reply</a>
-      </div>
-    </div>
-    <div class="comments">
+    <% @messages.each do |message| %>
       <div class="comment">
         <div class="content">
-          <a class="author">Jenny Hess</a>
+          <strong><%= message.user.username %></strong>: <%= message.body %>
           <div class="metadata">
-            <span class="date">Just now</span>
-          </div>
-          <div class="text">
-            Elliot you are always so right :)
-          </div>
-          <div class="actions">
-            <a class="reply">Reply</a>
+            <span class="date"><%= message.created_at.strftime("Sent on %d/%m at %I:%M%p") %></span>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="comment">
-    <div class="content">
-      <a class="author">Joe Henderson</a>
-      <div class="metadata">
-        <span class="date">5 days ago</span>
-      </div>
-      <div class="text">
-        Dude, this is awesome. Thanks so much
-      </div>
-      <div class="actions">
-        <a class="reply">Reply</a>
-      </div>
-    </div>
-  </div>
+    <% end %>
+          
   <form class="ui reply form">
     <div class="ui left icon input">
-        <input type="text" placeholder="Enter a message">
-        <i class="icon edit"></i> 
+      <input type="text" placeholder="Enter a message">
+      <i class="icon edit"></i> 
     </div>
   </form>
-</div>
 </div>
