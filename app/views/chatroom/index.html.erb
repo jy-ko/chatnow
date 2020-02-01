@@ -18,29 +18,22 @@
         </div>
     </div>
     
-<div class="ten wide column">
-  <h3 class="ui dividing header">Chatroom</h3>
-    <% @messages.each do |message| %>
-      <div class="comment">
-        <div class="content">
-          <strong><%= message.user.username %></strong>: <%= message.body %>
-          <div class="metadata">
-            <span class="date"><%= message.created_at.strftime("Sent on %d/%m at %I:%M%p") %></span>
-          </div>
-        </div>
-      </div>
-    <% end %>
-
-  <div class="extra content">
-        <%= form_for(@message, html: {class: "ui reply form", role: "form"}, url: message_path, remote: true) do |f| %>
-          <div class="field">
-            <div class="ui fluid icon input">
-              <%= f.text_field :body %>
-              <%= f.button '<i class="bordered inverted green large edit icon"></i>'.html_safe %>
+  <div class="ten wide column">
+    <h3 class="ui dividing header">Chatroom</h3>
+          <div class="content" id="messages">
+            <div class="ui feed" id="message-container">
+              <%= render @messages %>
             </div>
           </div>
-        <% end %>
-   </div>        
-
-</div>
+    <div class="extra content">
+          <%= form_for(@message, html: {class: "ui reply form", role: "form"}, url: message_path, remote: true) do |f| %>
+            <div class="field">
+              <div class="ui fluid icon input">
+                <%= f.text_field :body %>
+                <%= f.button '<i class="bordered inverted green large edit icon"></i>'.html_safe %>
+              </div>
+            </div>
+          <% end %>
+    </div>       
+  </div>
 </div>
