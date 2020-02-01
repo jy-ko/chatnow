@@ -20,12 +20,13 @@
     
   <div class="ten wide column">
     <h3 class="ui dividing header">Chatroom</h3>
+         <div class="ui fluid raised card chatbox">
           <div class="content" id="messages">
             <div class="ui feed" id="message-container">
               <%= render @messages %>
             </div>
           </div>
-    <div class="extra content">
+        <div class="extra content">
           <%= form_for(@message, html: {class: "ui reply form", role: "form"}, url: message_path, remote: true) do |f| %>
             <div class="field">
               <div class="ui fluid icon input">
@@ -34,6 +35,7 @@
               </div>
             </div>
           <% end %>
+        </div>
     </div>       
   </div>
 </div>
