@@ -11,13 +11,13 @@
 // about supported directives.
 //
 
-//= require_tree ./channels
+
 //= require rails-ujs
 //= require jquery
 //= require activestorage
 //= require turbolinks
 //= require semantic-ui
-//= require_tree .
+//= require_tree 
 
 scroll_bottom = function() {
     if ($('#messages').length > 0) {
